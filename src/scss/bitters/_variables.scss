@@ -1,0 +1,83 @@
+@mixin animate($properties, $duration: $base-duration, $easing: ease-in-out) {
+	$list:();
+	@each $prop in $properties {
+		$str: #{$prop} #{$duration} #{$easing};
+		$list: join($list, #{$str}, comma);
+	}
+	transition: $list;
+}
+
+// Breakpoints
+$widescreen: "min-width: 1800px";
+$desktop: "min-width: 1260px";
+$laptop: "min-width: 1024px";
+$tablet: "min-width: 768px";
+$form: "min-width: 750px";
+$mobile-lg: "min-width: 640px";
+$mobile-sm: "min-width: 480px";
+
+// Typography
+$base-font-family: 'OpenSans', Helvetica, Arial, sans-serif;
+$heading-font-family: 'TradeGothic', Helvetica, Arial, sans-serif;
+$montserrat-font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+
+// Line height
+$base-line-height: 1.75;
+$heading-line-height: 1.4;
+
+// Letter Spacing
+$base-letter-spacing: 0.07em;
+
+// Font Weight
+$base-font-weight: 300;
+$heading-font-weight: 700;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: 1.5em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+$max-content: 1200px;
+$table-margin: 20px;
+$layout-spacing-small: 100px;
+$layout-spacing-large: 200px;
+
+// Colors
+$clear: rgba(0, 0, 0, 0);
+$blue: #005290;
+$dark-gray: #3b3b3b;
+$light-gray: #dddddd;
+// $medium-gray: #a7a7a7;
+$medium-gray: #868686;
+$dark-gray: #7a7a7a;
+$white: #ffffff;
+$orange: #ff9600;
+$alert: #dc0303;
+$purple: #797aa1;
+$purple-hover: rgba(121, 122, 161, 0.85);
+$btn-hover: rgba(59, 59, 59, 0.75);
+$opacity-hover: 0.6;
+$shadow: 0px 0px 15px $light-gray;
+
+// Font Colors
+$base-font-color: $medium-gray;
+// $action-color: $blue;
+$action-color: $orange;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+$form-border: 1px solid rgba(255,255,255,0);
+
+// Background Colors
+$viewport-background-color: #ffffff;
+
+// Focus
+$focus-outline-color: transparentize($action-color, 0.4);
+$focus-outline-width: 3px;
+$focus-outline: $focus-outline-width solid $focus-outline-color;
+$focus-outline-offset: 2px;
+
+// Animations
+$base-duration: 300ms;
+$base-timing: ease-in-out;

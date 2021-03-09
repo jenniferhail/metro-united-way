@@ -1,0 +1,225 @@
+.layout.listing {
+
+    .wrapper {
+        max-width: $max-content;
+    }
+
+    .table-filters {
+        margin-bottom: 60px;
+        font-family: $heading-font-family;
+		font-weight: $heading-font-weight;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .table-filter {
+        display: inline-block;
+        color: $base-font-color;
+
+        &:after {
+            content: '|';
+            padding: 0 10px 0 15px;
+        }
+
+        &:last-child:after {
+            content: '';
+        }
+
+    }
+
+    .table-filter-link {
+        font-weight: 600;
+        color: $base-font-color;
+        @include animate(all);
+
+        &:hover {
+            color: $action-color;
+        }
+
+    }
+
+    .active-filter .table-filter-link {
+        color: $action-color;
+    }
+
+    .events-table {
+        margin-bottom: $table-margin * 3;
+        font-family: $heading-font-family;
+		font-weight: $heading-font-weight;
+        text-transform: uppercase;
+    }
+
+    .event-month {
+        margin-bottom: $table-margin;
+        color: $blue;
+    }
+
+    .month-section {
+        margin-bottom: $table-margin;
+    }
+
+    .event-row,
+    .table-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        border-top: $base-border;
+        padding: 15px 0;
+        font-weight: 600;
+
+        @media screen and ($tablet) {
+            justify-content: space-between;
+        }
+
+        &:last-child {
+            border-bottom: $base-border;
+        }
+
+        .left {
+            padding: 0 30px 15px 0;
+        }
+
+    }
+
+    .right {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 85%;
+
+        @media screen and ($tablet) {
+            width: 90%;
+            flex-direction: row;
+        }
+
+    }
+
+    .event-date {
+        color: $orange;
+    }
+
+    .p {
+        margin-bottom: 0;
+        color: $base-font-color;
+    }
+
+    .event-title, .event-location, .event-category {
+        padding-right: 30px;
+    }
+
+    .event-title {
+        color: $base-font-color;
+
+        @media screen and ($tablet) {
+            width: 25%;
+        }
+
+    }
+
+    .event-location {
+
+        @media screen and ($tablet) {
+            width: 40%;
+        }
+
+    }
+
+    .event-category {
+
+        @media screen and ($tablet) {
+            width: 15%;
+        }
+
+    }
+
+    .event-links {
+
+        @media screen and ($tablet) {
+            width: 20%;
+            text-align: right;
+        }
+
+    }
+
+    .event-link {
+        // Trying to avoid the word wrapping
+        display: inline-block;
+        // min-width: 50px;
+        @include animate(color);
+    }
+
+    .event-category a,
+    .event-link {
+        color: $base-font-color;
+
+        &:hover {
+            color: $action-color;
+        }
+
+    }
+
+    .btn {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .allies-table {
+
+        .ally-logo {
+            width: 100%;
+
+            @media screen and ($tablet) {
+                width: 25%;
+            }
+
+            .allies-logo {
+                width: 75px;
+                padding-bottom: 10px;
+            }
+        }
+
+        .ally-phone {
+            color: $blue;
+        }
+
+        .ally-description {
+            width: 100%;
+
+            @media screen and ($tablet) {
+                width: 45%;
+            }
+        }
+
+    }
+
+    .partner-table {
+
+        .partner-logo {
+            width: 100%;
+
+            @media screen and ($tablet) {
+                width: 25%;
+            }
+
+            .partners-logo {
+                width: 75px;
+                padding-bottom: 10px;
+            }
+        }
+
+        .partner-amount {
+            color: $blue;
+        }
+
+        .partner-description {
+            width: 100%;
+
+            @media screen and ($tablet) {
+                width: 45%;
+            }
+        }
+
+    }
+
+}

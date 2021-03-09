@@ -1,0 +1,163 @@
+.layout.selectors {
+
+    .content {
+        text-align: center;
+    }
+
+    .intro {
+        margin-bottom: 120px;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 120px;
+    }
+
+    .selector {
+        display: flex;
+        height: 550px;
+        overflow: hidden;
+
+        width: 100%;
+
+        @media screen and ($mobile-sm) {
+            width: 50%;
+        }
+
+        @media screen and ($laptop) {
+            width: 25%;
+        }
+
+    }
+
+    &.home {
+
+        .cards {
+            margin-bottom: 0;
+        }
+
+        .selector {
+            height: 640px;
+
+            @media screen and ($desktop) {
+                height: 80vh;
+            }
+
+        }
+
+    }
+
+	&.enable-slider {
+		.cards {
+			display: block;
+		}
+	}
+
+    &.disable-slider {
+        .selector {
+            max-width: 350px;
+        }
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+		flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 20px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        @include animate(all);
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.80;
+            background-color: $white;
+            z-index: 0;
+            @include animate(all);
+        }
+
+        .h3 {
+			width: 100%;
+            color: $orange;
+            transition: color 300ms $base-timing;
+        }
+
+        .card-center {
+			position: relative;
+            margin: auto;
+            text-align: center;
+			display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    flex-direction: column;
+        }
+
+        .card-hover {
+            font-weight: 600;
+            transition: max-height $base-duration $base-timing, visibility $base-duration $base-timing, opacity $base-duration $base-timing;
+            max-height: 0;
+			max-width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            color: $white;
+
+            p {
+                margin-bottom: 80px;
+            }
+
+        }
+
+        &:hover {
+
+            &:before {
+                background-color: $purple;
+            }
+
+            .h3, .card-center {
+                color: #ffffff;
+            }
+
+            .card-hover {
+
+                // @media screen and ($tablet) {
+                    opacity: 1;
+                    visibility: visible;
+                    max-height: 999px;
+                // }
+
+            }
+
+        }
+
+        .btn {
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+        }
+
+    }
+
+    .buttons {
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+}

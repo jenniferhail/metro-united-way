@@ -1,0 +1,593 @@
+.fullpage-wrapper {
+	z-index: 1;
+}
+
+// Base Settings
+.layout {
+    margin-bottom: $layout-spacing-small;
+    &:first-child {
+        padding-top: 70px;
+        @media screen and ($laptop) {
+            padding-top: 70px;
+        }
+    }
+	&:first-child:not(.hero) {
+        padding-top: 150px;
+        @media screen and ($laptop) {
+            padding-top: 200px;
+        }
+    }
+    @media screen and ($tablet) {
+        margin-bottom: $layout-spacing-large;
+    }
+    .home & {
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+	.fp-scroller & {
+		&:first-child {
+			padding-top: 120px;
+		}
+	}
+}
+
+// Custom padding for the donate landing page
+.page-id-4917 {
+	.layout.highlights {
+		margin-bottom: 60px;
+		// @media screen and ($tablet) {
+	    //     margin-bottom: 60px;
+	    // }
+	}
+}
+
+.wrapper {
+    // max-width: 1800px;
+    max-width: 1600px;
+    margin: auto;
+    padding: 0 15px;
+    @media screen and ($laptop) {
+        padding: 0 30px;
+    }
+    @media screen and ($widescreen) {
+        margin: 0 auto;
+        padding: 0;
+    }
+}
+
+.single-muw_program {
+    .main {
+        margin-top: 70px;
+    }
+    .layout.cta:first-child {
+        padding-top: 0;
+    }
+    .layout.hero.newsletter {
+        margin-top: -120px;
+    }
+}
+
+.full-width {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.col {
+    width: 100%;
+    @media screen and ($tablet) {
+        width: 50%;
+    }
+}
+
+.col-text {
+    padding: 0 4%;
+    // margin-bottom: 60px;
+    @media screen and ($tablet) {
+        padding: 0 6%;
+        margin-bottom: 0;
+    }
+    @media screen and ($laptop) {
+        padding: 0 8%;
+    }
+    @media screen and ($desktop) {
+        padding: 0 10%;
+    }
+}
+
+.intro,
+.intro-updated {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    text-align: center;
+
+    h1 {
+        &.black {
+            color: #000000;
+        }
+        &.dark-grey {
+            color: #505050;
+        }
+        &.light-grey {
+            color: #969696;
+        }
+        &.white {
+            color: #ffffff;
+        }
+        &.midnight-blue {
+            color: #000064;
+        }
+        &.dark-blue {
+            color: #10167f;
+        }
+        &.dark-teal {
+            color: #005191;
+        }
+        &.light-blue {
+            color: #539ed0;
+        }
+        &.lavender {
+            color: #7c81b8;
+        }
+        &.maroon {
+            color: #b41428;
+        }
+        &.red {
+            color: #fe230a;
+        }
+        &.rose {
+            color: #ff443b;
+        }
+        &.salmon {
+            color: #ff967d;
+        }
+        &.rose-gold {
+            color: #ffb351;
+        }
+        &.blood-orange {
+            color: #f57814;
+        }
+        &.orange {
+            color: $orange;
+        }
+        &.peach {
+            color: #ffc87d;
+        }
+        &.sand {
+            color: #e6d7aa;
+        }
+        &.eggshell {
+            color: #f0e6c8;
+        }
+        &.turquoise {
+            color: #13a89e;
+        }
+        &.green {
+            color: #2bb673;
+        }
+        &.lime-green {
+            color: #8cc63f;
+        }
+        &.steel-blue {
+            color: #1f6a90;
+        }
+        &.pea-green {
+            color: #81b363;
+        }
+        &.tomato-red {
+            color: #db5633;
+        }
+        &.gold {
+            color: #f7bc31;
+        }
+        &.teal {
+            color: #0b9cb1;
+        }
+    }
+}
+
+.text {
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+.assistive-text {
+    display: none;
+}
+
+.muw-logo {
+    width: 133px;
+}
+
+.header .muw-logo, .footer .muw-logo {
+
+    .svg-outline {
+        fill: none;
+    }
+
+    .svg-bg, .svg-uw, .svg-circle, .svg-tm {
+        fill: $white;
+    }
+
+    .svg-square {
+        fill: #549ecf;
+    }
+
+    .svg-blue, .svg-name, .svg-hand {
+        fill: #005290;
+    }
+
+    .svg-sun {
+        fill: #fbb253;
+    }
+
+    .svg-person {
+        fill: #ef4865;
+    }
+
+}
+
+svg {
+    display: block;
+}
+
+.pagination, .layout.basic-content .pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    .pagination-left {
+        order: 1;
+    }
+
+    .share-links {
+        order: 3;
+
+        width: 100%;
+        text-align: center;
+
+        .share-list {
+            padding: 0;
+            margin: 0;
+        }
+
+        .share-link {
+            display: inline-block;
+        }
+
+        i {
+            display: block;
+        }
+
+    }
+
+    .social-links li {
+        padding: 0 5px 15px;
+    }
+
+    .pagination-right {
+        order: 2;
+        justify-content: flex-end;
+    }
+
+    .page-numbers {
+        padding: 0 10px;
+        font-size: 24px;
+        text-transform: uppercase;
+        font-family: $heading-font-family;
+		font-weight: $heading-font-weight;
+        color: $medium-gray;
+        @include animate(all);
+
+        &.next,
+        &.prev {
+            position: relative;
+            top: 3px;
+            height: 36px;
+            width: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: $orange;
+            color: $white;
+
+            i {
+                position: relative;
+            }
+
+            i:before {
+                font-family: "Font Awesome 5 Light";
+                font-size: 24px;
+                line-height: 1;
+                color: $white;
+                // opacity: $slick-opacity-default;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            &:hover {
+                color: $white;
+                background-color: $medium-gray;
+            }
+
+        }
+
+        &.next {
+            margin-left: 10px;
+
+            i {
+                top: -1px;
+                left: 1px;
+            }
+
+        }
+
+        &.prev {
+            margin-right: 10px;
+
+            i {
+                top: -1px;
+                left: -2px;
+            }
+
+        }
+
+        &.current,
+        &:hover {
+            color: $orange;
+        }
+
+    }
+
+    .pagination-left,
+    .pagination-right {
+        display: flex;
+        width: 50%;
+        margin: 15px 0 100px;
+
+        a {
+            display: block;
+            position: relative;
+
+            padding: 15px 25px;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-family: $heading-font-family;
+			font-weight: $heading-font-weight;
+            text-align: center;
+            text-decoration: none;
+            line-height: 1.1;
+
+            transition: all $base-duration $base-timing;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                z-index: -1;
+                background-color: $orange;
+                transition: height $base-duration $base-timing, background-color 150ms $base-timing 150ms;
+            }
+
+            &:hover {
+                color: $white;
+
+                &:before {
+                    height: 100%;
+                    background-color: $blue;
+                    transition: height $base-duration $base-timing, background-color 150ms $base-timing;
+                }
+            }
+
+        }
+
+    }
+
+    @media screen and ($mobile-lg) {
+
+        .pagination-left {
+            order: 1;
+        }
+
+        .share-links {
+            order: 2;
+        }
+
+        .pagination-right {
+            order: 3;
+        }
+
+        .pagination-section {
+            width: 1 / 3 * 100%;
+            margin: 0;
+        }
+
+        .pagination-left a,
+        .pagination-right a {
+            padding: 15px 35px;
+        }
+
+    }
+
+    @media screen and ($tablet) {
+
+        .pagination-left a,
+        .pagination-right a {
+            padding: 15px 45px;
+            font-size: 24px;
+        }
+
+    }
+
+}
+
+// Stacked Forms = Input fields with a submit button "inside"
+
+.stacked {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .input {
+        display: inline;
+        width: 100%;
+        margin-bottom: 45px;
+        padding: 15px 195px 15px 30px;
+        border-radius: 5px;
+        color: $medium-gray;
+        font-style: italic;
+
+        @media screen and ($mobile-lg) {
+            margin-bottom: auto;
+        }
+
+    }
+
+    .btn {
+        max-height: 100%;
+        top: 0;
+        right: 0;
+        padding: 16px 60px;
+        border-radius: 0;
+        border-top: 0;
+        background-color: rgba(59, 59, 59, 0.75);
+        color: $white;
+        font-family: $heading-font-family;
+		font-weight: $heading-font-weight;
+        font-size: 22px;
+        letter-spacing: 1px;
+
+        @media screen and ($mobile-lg) {
+            position: absolute;
+            padding: 15px 45px;
+            border-radius: 0 5px 5px 0;
+            background-color: $orange;
+
+            &:hover,
+			&:focus {
+                background-color: $blue;
+            }
+
+        }
+
+    }
+
+}
+.grid-gallery .gg-link .crop img {
+	min-height: 200px !important;
+	height: auto !important;
+}
+
+$layouts: accordion, basic-content, cards, cta, gallery, hero, highlights, listing, resources, selectors, sidebar, slider, tables;
+
+@each $layout in $layouts {
+    .layout.#{$layout}.margin-top-none {
+        margin-top: 0;
+    }
+    .layout.#{$layout}.margin-top-small {
+        margin-top: 25px;
+    }
+    .layout.#{$layout}.margin-top-medium {
+        margin-top: 50px;
+    }
+    .layout.#{$layout}.margin-top-large {
+        margin-top: 100px;
+    }
+    .layout.#{$layout}.margin-bottom-none {
+        margin-bottom: 0;
+    }
+    .layout.#{$layout}.margin-bottom-small {
+        margin-bottom: 25px;
+    }
+    .layout.#{$layout}.margin-bottom-medium {
+        margin-bottom: 50px;
+    }
+    .layout.#{$layout}.margin-bottom-large {
+        margin-bottom: 100px;
+    }
+    .layout.#{$layout}.padding-top-none {
+        padding-top: 0;
+    }
+    .layout.#{$layout}.padding-top-small {
+        padding-top: 25px;
+    }
+    .layout.#{$layout}.padding-top-medium {
+        padding-top: 50px;
+    }
+    .layout.#{$layout}.padding-top-large {
+        padding-top: 100px;
+    }
+    .layout.#{$layout}.padding-bottom-none {
+        padding-bottom: 0;
+    }
+    .layout.#{$layout}.padding-bottom-small {
+        padding-bottom: 25px;
+    }
+    .layout.#{$layout}.padding-bottom-medium {
+        padding-bottom: 50px;
+    }
+    .layout.#{$layout}.padding-bottom-large {
+        padding-bottom: 100px;
+    }    
+    @media screen and ($tablet) {
+        .layout.#{$layout}.margin-top-none {
+            margin-top: 0;
+        }
+        .layout.#{$layout}.margin-top-small {
+            margin-top: 50px;
+        }
+        .layout.#{$layout}.margin-top-medium {
+            margin-top: 100px;
+        }
+        .layout.#{$layout}.margin-top-large {
+            margin-top: 200px;
+        }
+        .layout.#{$layout}.margin-bottom-none {
+            margin-bottom: 0;
+        }
+        .layout.#{$layout}.margin-bottom-small {
+            margin-bottom: 50px;
+        }
+        .layout.#{$layout}.margin-bottom-medium {
+            margin-bottom: 100px;
+        }
+        .layout.#{$layout}.margin-bottom-large {
+            margin-bottom: 200px;
+        }
+        .layout.#{$layout}.padding-top-none {
+            padding-top: 0;
+        }
+        .layout.#{$layout}.padding-top-small {
+            padding-top: 50px;
+        }
+        .layout.#{$layout}.padding-top-medium {
+            padding-top: 100px;
+        }
+        .layout.#{$layout}.padding-top-large {
+            padding-top: 200px;
+        }
+        .layout.#{$layout}.padding-bottom-none {
+            padding-bottom: 0;
+        }
+        .layout.#{$layout}.padding-bottom-small {
+            padding-bottom: 50px;
+        }
+        .layout.#{$layout}.padding-bottom-medium {
+            padding-bottom: 100px;
+        }
+        .layout.#{$layout}.padding-bottom-large {
+            padding-bottom: 200px;
+        }
+    } 
+}

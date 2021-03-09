@@ -1,0 +1,483 @@
+$nav-wide: "min-width: 1016px";
+$nav-smaller-type: "min-width: 1190px";
+$nav-first-break: "min-width: 1400px";
+
+.header {
+    .nav-center {
+        display: none;
+        @media screen and ($nav-wide) {
+            display: block;
+        }
+    }
+
+    .nav {
+        display: none;
+        @media screen and ($nav-wide) {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .mobile-nav {
+        display: block;
+        @media screen and ($nav-wide) {
+            display: none;
+        }
+    }
+
+	.sub-menu {
+		display: none;
+	}
+
+	.nav-center,
+	.nav,
+	.mobile-menu {
+		&.hide {
+			display: none;
+		}
+	}
+
+    // Button style for a menu item
+    .menu-item.button {
+        padding: 0 0.75em; 
+        background-color: $orange;
+        transition: background-color $base-duration $base-timing;
+        a {
+            color: $white;
+        }
+        &:hover,
+        &:focus {
+            background-color: $blue;
+            a {
+                color: $white;
+            }
+        }
+    }
+}
+
+.home {
+
+    .nav-center {
+		transition: opacity $base-duration $base-timing;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .header.reveal .nav-center {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .header.reveal .nav-center.hide {
+        opacity: 0;
+    }
+
+}
+
+.nav-left {
+    z-index: 5;
+}
+
+.nav {
+    text-align: right;
+    z-index: 5;
+
+    ul {
+        list-style: none;
+
+        li {
+			position: relative;
+            display: inline-block;
+            padding: 0 0.5em;
+			white-space: nowrap;
+
+            @media screen and ($nav-smaller-type) {
+                padding: 0 0.75em;
+            }
+
+            @media screen and ($nav-first-break) {
+                padding: 0 1em;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+            &.center {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+
+            a {
+                text-transform: uppercase;
+                font-family: $montserrat-font-family;
+                font-size: 11px;
+                font-weight: bold;
+
+                @media screen and ($nav-smaller-type) {
+                  font-size: 12px;
+                }
+
+                @media screen and ($nav-first-break) {
+                  font-size: 14px;
+                }
+
+                &.search i {
+                  color: $white;
+                }
+
+                &:hover {
+                    color: $orange;
+                }
+
+            }
+
+            &.current-menu-item a {
+                color: $orange;
+            }
+
+            .search-toggle {
+                color: $orange;
+            }
+
+        }
+
+		.sub-menu {
+			visibility: hidden;
+	        opacity: 0;
+			display: block;
+			position: absolute;
+			left: -15px;
+			top: 20px;
+			width: auto;
+			padding: 15px;
+			background-color: white;
+			text-align: left;
+			li {
+				display: block;
+				&:last-child {
+					padding-right: 0.5em;
+				}
+			}
+			a {
+				padding: 15px 0;
+				line-height: 3.5;
+			}
+			.sub-menu {
+				position: relative;
+				top: 0;
+				left: 0;
+				padding: 0 5px;
+			}
+		}
+
+		// IE hover test
+		.menu-item:hover .sub-menu {
+			visibility: visible;
+			opacity: 1;
+			// transform: translate(0,0);
+			// transition: transform 300ms ease-out, opacity 300ms, z-index 0s 300ms, background-color 300ms;
+			transition: opacity 300ms;
+			// li {
+			// 	opacity: 1;
+			// 	transform: translate(0,0);
+			// 	transition-delay: 350ms;
+			// }
+		}
+
+		.menu-item:focus-within .sub-menu {
+			visibility: visible;
+			opacity: 1;
+			// transform: translate(0,0);
+			// transition: transform 300ms ease-out, opacity 300ms, z-index 0s 300ms, background-color 300ms;
+			transition: opacity 300ms;
+			// li {
+			// 	opacity: 1;
+			// 	transform: translate(0,0);
+			// 	transition-delay: 350ms;
+			// }
+		}
+    }
+}
+
+.nav-center {
+    position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+
+    @include animate(opacity);
+
+    &.hide {
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    ul {
+        display: flex;
+
+        @media screen and ($tablet) {
+            flex-direction: row;
+        }
+
+        li {
+            width: 50%;
+            padding: 0 5px;
+
+            @media screen and ($nav-smaller-type) {
+                padding: 0 10px;
+            }
+
+            @media screen and ($nav-first-break) {
+                padding: 0 15px;
+            }
+
+            &:first-child {
+                text-align: right;
+            }
+
+            &:last-child {
+                text-align: left;
+            }
+
+        }
+
+    }
+
+    li {
+
+        a {
+            text-transform: uppercase;
+            font-family: $heading-font-family;
+			font-weight: $heading-font-weight;
+            font-size: 18px;
+            color: $purple;
+
+            @media screen and ($nav-smaller-type) {
+                font-size: 20px;
+            }
+
+            @media screen and ($nav-first-break) {
+                font-size: 24px;
+            }
+
+            &:hover, &.current-menu-item {
+                color: $blue;
+            }
+
+        }
+
+        &.current-menu-item a,
+        &.current-menu-parent a {
+            color: $blue;
+        }
+
+    }
+
+	.sub-menu {
+
+	}
+
+}
+
+.menu-btn {
+    width: 30px;
+    height: 4px;
+    border-radius: 25%;
+    background-color: $blue;
+}
+
+.notification-toggle {
+	display: block;
+	svg {
+		position: relative;
+		width: 14px;
+		height: 14px;
+		top: 1px;
+		right: 0;
+	}
+}
+.notification-toggle-mobile {
+	display: inline-block;
+	margin-right: 10px;
+	svg {
+		position: relative;
+		width: 28px;
+		height: 28px;
+	}
+}
+
+// .nav-left {
+//     margin: 0 auto;
+//     transform: translateX(calc(50% - 16.5px));
+// }
+
+// Working on the hamburger + mobile menu
+
+#menuToggle {
+	display: inline-block;
+	position: relative;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	-webkit-user-select: none;
+	user-select: none;
+	@media screen and ($nav-wide) {
+		display: block;
+	}
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background: $blue;
+    border-radius: 3px;
+
+    z-index: 1;
+
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+    }
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+/*
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: $blue;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100%;
+
+  @media screen and ($mobile-lg) {
+      width: 60vw;
+      border-left: $base-border;
+  }
+
+  // margin: -22px -15px 0;
+  padding: 90px 30px 50px;
+
+  background: $white;
+  border-left: 1px solid $white;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  /* to stop flickering of text in safari */
+
+  overflow: auto;
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+  .social {
+      padding-top: 60px;
+  }
+
+}
+
+#mobile-menu > ul > li.menu-item, .mobile-menu-item {
+  padding: 10px 0;
+  border-bottom: $base-border;
+  font-family: $heading-font-family;
+  font-weight: $heading-font-weight;
+  font-size: 28px;
+  text-transform: uppercase;
+  a {
+      color: $blue;
+  }
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ #mobile-menu {
+  transform: none;
+}
+
+#mobile-menu .sub-menu, .mobile-submenu {
+    padding: 5px 0;
+}
+
+#mobile-menu .sub-menu .menu-item, .mobile-submenu-item {
+    font-size: 20px;
+    a {
+        opacity: 0.6;
+    }
+}
+.nav-acc-content {
+    display: none;
+    &.nav-active {
+        display: block;
+    }
+}
+
+
+// Search Page Navigation
+.search-nav {
+	text-align: center;
+	.navigation li {
+		display: inline-block;
+		margin: 0 5px 5px;
+	}
+}

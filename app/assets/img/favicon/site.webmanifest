@@ -1,0 +1,14 @@
+{
+    "name": "Metro United Way",
+    "short_name": "Metro United Way",
+    "icons": [
+        {
+            "src": "/app/dist/assets/img/android-chrome-192x192.png?v=ngjkRoaM3r",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}

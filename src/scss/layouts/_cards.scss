@@ -1,0 +1,420 @@
+.layout.cards {
+
+    .content {
+        text-align: center;
+    }
+
+    .intro {
+        max-width: 1400px;
+    }
+
+    .card-list {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 30px 100px;
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        margin: 15px;
+        overflow: hidden;
+        background-color: $white;
+        box-shadow: $shadow;
+
+        @include animate(all);
+
+        &.has-btn {
+
+            .card-text {
+                top: 10px;
+            }
+
+            @media screen and (min-width: 850px) {
+
+                .card-text {
+                    top: 40px;
+                }
+
+                &:hover {
+
+                    .card-text {
+                        top: 0;
+                    }
+
+                }
+
+            }
+
+        }
+
+        &:not(.card-person):not(.card-muw_allies) {
+            @include animate(all);
+
+            .card-text {
+                height: 100%;
+            }
+
+            &:hover {
+
+                @media screen and (min-width: 850px) {
+
+                    transform: scale(1.05);
+
+                    .btn {
+                        opacity: 1;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .card-content {
+        height: 100%;
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background-color: $white;
+        z-index: 1;
+    }
+
+    .card-link {
+        width: 100%;
+
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        // bottom: 0;
+        // left: 0;
+        // height: 100%;
+        // z-index: 2;
+
+        // &:hover + .card-content {
+        //
+        //     .card-image {
+        //         height: 100%;
+        //     }
+        //
+        //     .card-text {
+        //         height: 100%;
+        //         top: 0;
+        //         background-color: $purple-hover;
+        //         color: $white;
+        //         z-index: 1;
+        //     }
+        //
+        //     .p, .h3 {
+        //         color: $white;
+        //     }
+        //
+        //     .p {
+        //         margin-bottom: 60px;
+        //     }
+        //
+        // }
+
+    }
+
+    .card-image {
+        width: 100%;
+        height: 200px;
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+        @include animate(all);
+        z-index: -1;
+    }
+
+    .card-text {
+        max-width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        font-weight: 600;
+        @include animate(all);
+        z-index: 2;
+
+		.card-text-top {
+			max-width: 100%;
+		}
+
+        .date {
+            color: $blue;
+        }
+
+        .h3 {
+            @media screen and ($desktop) {
+                font-size: 30px;
+            }
+        }
+
+        .p {
+            width: 100%;
+            color: $medium-gray;
+
+            @media screen and (min-width: 850px) {
+                margin-bottom: 0;
+            }
+        }
+
+        .btn {
+            margin-bottom: 0;
+            color: $orange;
+
+            &:before {
+                background-color: $orange;
+            }
+
+            &:hover {
+                color: #ffffff;
+
+                &:before {
+                    height: 100%;
+                    background-color: $blue;
+                }
+
+            }
+
+            @media screen and (min-width: 850px) {
+                opacity: 0;
+
+                &:hover {
+                    color: $white;
+
+                    &:before {
+                        height: 100%;
+                        background-color: $blue;
+                    }
+
+                }
+
+            }
+        }
+
+    }
+
+    .h1, h1, .h2, h2 {
+        margin-bottom: 30px;
+    }
+
+    .buttons {
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .btn {
+        position: relative;
+        margin-top: 30px;
+        padding: 15px 45px;
+        color: $orange;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            display: block;
+            background-color: $orange;
+            z-index: -1;
+            transition: height $base-duration $base-timing, background-color 150ms $base-timing 150ms;
+        }
+
+        &:hover {
+            color: #ffffff;
+
+            &:before {
+                height: 100%;
+                background-color: $blue;
+                transition: height $base-duration $base-timing, background-color 150ms $base-timing;
+            }
+
+        }
+
+    }
+
+    &.slider {
+
+        .card-slider {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 30px 100px;
+        }
+
+        .card {
+            // width: auto;
+            // max-width: inherit;
+            margin: 0 10px;
+        }
+
+        .slick-list {
+            padding: 10px 0;
+        }
+
+        .slick-next {
+            right: -18px;
+        }
+
+        .slick-prev {
+            left: -18px;
+        }
+
+    }
+
+    &.enable-slider {
+        .slick-slider {
+            margin-left: 15px;
+            margin-right: 15px;
+			@media screen and ($mobile-sm) {
+				margin-left: 50px;
+	            margin-right: 50px;
+			}
+			@media screen and ($mobile-lg) {
+				margin-left: 100px;
+	            margin-right: 100px;
+			}
+        }
+        .slick-track {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .slick-next {
+            right: -5px;
+			@media screen and ($mobile-sm) {
+				right: -5px;
+			}
+			@media screen and ($mobile-lg) {
+				right: -75px;
+			}
+        }
+        .slick-prev {
+            left: -5px;
+			@media screen and ($mobile-sm) {
+				left: -5px;
+			}
+			@media screen and ($mobile-lg) {
+				left: -75px;
+			}
+        }
+    }
+
+    &.disable-slider {
+        .card-slider {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    .card-person {
+        .card-content {
+            justify-content: space-between;
+        }
+        .card-image {
+            height: 400px;
+        }
+        .card-text {
+			width: 100%;
+            flex-grow: 1;
+            justify-content: space-between;
+			.card-text-top {
+				width: 100%;
+			}
+        }
+        .h1, h1, .h2, h2 {
+            margin-bottom: 5px;
+        }
+        .p {
+            margin-bottom: 0;
+        }
+        .card-button {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            margin: 10px 5px 0;
+            border-radius: 50%;
+            background-color: $orange;
+            color: $white;
+            @include animate(all);
+            .fa-envelope {
+                @include center;
+            }
+            .star {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                margin: 0 auto;
+                width: 36px;
+            }
+            &:hover {
+                background-color: $medium-gray;
+            }
+        }
+    }
+
+    .card-muw_allies,
+    .card-muw_partners {
+        box-shadow: none;
+        .card-text {
+            justify-content: flex-start;
+            .btn {
+                font-size: 18px;
+                opacity: 1;
+            }
+        }
+    }
+
+    .allies-logo,
+    .partner-logo {
+        max-height: 130px;
+        padding-top: 15px;
+        padding-bottom: 30px;
+    }
+
+    .ally-phone.p,
+    .partner-phone.p {
+        padding-top: 15px;
+        color: $blue;
+    }
+
+}
+
+.layout.cards_tall.enable-slider {
+    .slick-slider {
+        margin-left: 15px;
+        margin-right: 15px;
+        @media screen and ($mobile-lg) {
+            margin-left: 75px;
+            margin-right: 75px;
+        }
+    }
+    .slick-next {
+        right: -18px;
+        @media screen and ($mobile-lg) {
+            right: -75px;
+        }
+    }
+    .slick-prev {
+        left: -18px;
+        @media screen and ($mobile-lg) {
+            left: -75px;
+        }
+    }
+}

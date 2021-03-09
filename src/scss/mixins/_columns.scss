@@ -1,0 +1,14 @@
+@mixin columns($cols, $grid-space, $bottom-space) {
+	width: calc(#{100 / $cols}% - #{$grid-space * (($cols - 1) / $cols)});
+	margin: 0px $grid-space $bottom-space 0px;
+	display: flex;
+	&:nth-child(#{$cols - 1}n + #{$cols - 1}){
+		margin-right: $grid-space;
+	}
+	&:nth-child(#{$cols + 1}n + #{$cols + 1}){
+		margin-right: $grid-space;
+	}
+	&:nth-child(#{$cols}n + #{$cols}){
+		margin-right: 0px;
+	}
+}

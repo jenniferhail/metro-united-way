@@ -1,0 +1,154 @@
+.layout.logo-list {
+    text-align: center;
+
+    .home & {
+        padding: 200px 0 120px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .section-header {
+        margin-bottom: 60px;
+    }
+
+    .slide-wrapper {
+        padding: 0 12%;
+    }
+
+    .slick-wrapper {
+        margin: 0 auto;
+        padding: 0 30px 60px;
+        @media screen and ($tablet) {
+            padding: 0 80px 60px;
+        }
+        @media screen and ($laptop) {
+            padding: 0 100px 60px;
+        }
+    }
+
+    .logos-slider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media screen and ($tablet) {
+            flex-wrap: wrap;
+        }
+        @media screen and ($laptop) {
+            flex-wrap: nowrap;
+        }
+    }
+
+    .logos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 80px;
+        @media screen and ($tablet) {
+            flex-direction: row;
+        }
+        .slick-track {
+            display: flex;
+			align-items: center;
+            // justify-content: center;
+        }
+
+        a,
+		.logo-wrapper {
+            display: block;
+            padding: 40px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 220px;
+            max-width: 250px;
+
+            @media screen and ($tablet) {
+                width: 1 / 3 * 100%;
+            }
+
+            @media screen and ($laptop) {
+                width: auto;
+            }
+
+            img {
+                width: 100%;
+
+				&.hover {
+					filter: grayscale(1) opacity(0.2) drop-shadow(0 0 0 black);
+	                -webkit-filter: grayscale(1) opacity(0.2) drop-shadow(0 0 0 black);
+	                @include animate(filter);
+				}
+
+            }
+
+            a:hover img.hover,
+			.logo-wrapper:hover img.hover {
+                filter: grayscale(0);
+                -webkit-filter: grayscale(0);
+            }
+
+        }
+
+    }
+
+    .slick-slider {
+        flex-direction: row;
+
+        .logo {
+            width: auto;
+        }
+
+    }
+
+    .buttons {
+        margin: 0 auto;
+    }
+
+    .slick-prev:before {
+        padding-left: 3px;
+    }
+
+    .btn {
+		margin: auto;
+	}
+
+}
+
+// Custom highlight styles for the donate landing page
+.page-id-4917 {
+
+	.layout.logo-list {
+
+		.logos .logo {
+			width: auto;
+			max-width: 360px;
+			@media screen and (min-width: 768px) {
+				width: 50%;
+				max-width: 250px;
+			}
+		}
+
+		.logos .logo .logo-wrapper img {
+			filter: none;
+			-webkit-filter: none;
+		}
+
+		a,
+		.logo-wrapper {
+            padding: 20px;
+        }
+
+	}
+
+	.layout .intro-updated {
+		padding-bottom: 0;
+	}
+
+}

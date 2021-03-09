@@ -1,0 +1,114 @@
+.layout.resources {
+
+	// Get Help Now Page
+	.page-id-2576 & {
+		margin-bottom: 0;
+
+		.resource {
+			width: 150px;
+
+			@media screen and ($laptop) {
+				width: 20%;
+			}
+
+		}
+
+		.h1, h1 {
+			font-size: 30px;
+			letter-spacing: 0;
+
+			@media screen and ($laptop) {
+				font-size: 40px;
+			}
+
+		}
+
+		.h4 {
+			font-size: 18px;
+		}
+
+	}
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .resource-list {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 5% 60px;
+        @media screen and ($laptop) {
+            padding: 0 5% 80px;
+        }
+    }
+
+    .resource {
+        width: 50%;
+        max-width: 300px;
+        margin: 0 auto 30px;
+
+        @media screen and ($laptop) {
+            width: 25%;
+        }
+
+        a, h3 {
+            color: #9296c4;
+        }
+
+		a,
+		h3,
+		.muw-svg {
+			@include animate(all);
+		}
+
+		a:hover {
+
+			h3 {
+				color: $blue;
+			}
+
+			.muw-svg {
+				fill: $blue;
+			}
+
+		}
+
+    }
+
+    .icon {
+        margin: 0 auto 30px;
+
+        .cls-0 {
+            fill: none;
+            stroke: #9296c4;
+            stroke-miterlimit: 10;
+        }
+
+        svg {
+            margin: 0 auto;
+        }
+
+    }
+
+    .h1, h1, .h2, h2 {
+        margin-bottom: 30px;
+        color: $orange;
+    }
+
+    .buttons {
+        margin: 0 auto;
+    }
+
+	.intro-updated {
+		padding-bottom: 40px;
+	}
+
+	.logo-211 {
+		width: 180px;
+		margin: 0 auto 60px;
+	}
+
+}

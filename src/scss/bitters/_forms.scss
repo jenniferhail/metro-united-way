@@ -1,0 +1,887 @@
+$_form-background-color: #ededed;
+$_form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$_form-box-shadow-focus: $_form-box-shadow, 0 0 5px rgba($action-color, 0.7);
+
+form {
+    margin-bottom: 60px;
+    font-weight: 600;
+}
+
+fieldset {
+      background-color: transparent;
+      border: 0;
+      margin: 0 0 60px;
+      padding: 0;
+}
+
+legend {
+      font-weight: 600;
+      margin-bottom: $small-spacing / 2;
+      padding: 0;
+}
+
+label {
+      display: block;
+      margin-bottom: $small-spacing / 2;
+      font-family: $heading-font-family;
+      @extend .h4;
+	  font-weight: $heading-font-weight;
+      text-transform: uppercase;
+      color: $orange;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    margin: 0 auto;
+    font-family: $base-font-family;
+    font-size: 16px;
+}
+
+#{$all-text-inputs} {
+    box-sizing: border-box;
+    margin-bottom: $small-spacing;
+    padding: $base-spacing / 3;
+
+    width: 100%;
+    // max-width: 800px;
+    margin: 0 auto;
+
+    appearance: none;
+    background-color: $_form-background-color;
+    border: $form-border;
+    border-radius: $base-border-radius;
+    // box-shadow: $_form-box-shadow;
+
+    transition: border-color $base-duration $base-timing;
+
+    &:hover {
+        // border-color: shade($base-border-color, 20%);
+    }
+
+    &:focus {
+        border-color: $action-color;
+        box-shadow: $_form-box-shadow-focus;
+        outline: none;
+    }
+
+    &:disabled {
+        background-color: shade($_form-background-color, 5%);
+        cursor: not-allowed;
+
+        &:hover {
+            border: $base-border;
+        }
+    }
+
+    &::placeholder {
+        color: tint($base-font-color, 40%);
+    }
+}
+
+textarea {
+    resize: vertical;
+}
+
+[type="color"] {
+    width: 50px;
+    height: 50px;
+    padding: 2px;
+}
+
+[type="checkbox"],
+[type="radio"] {
+    display: inline;
+    margin-right: $small-spacing / 2;
+}
+
+[type="file"] {
+    margin-bottom: $small-spacing;
+}
+
+select {
+    margin-bottom: $small-spacing;
+    width: 100%;
+    @media screen and ($tablet) {
+        width: 40%;
+    }
+}
+
+[type="file"],
+select {
+    &:focus {
+        outline: $focus-outline;
+        outline-offset: $focus-outline-offset;
+    }
+}
+
+[type="number"] {
+    max-width: 280px;
+}
+
+[type="submit"] {
+    position: relative;
+    padding: 15px 45px;
+
+    border-top: 2px solid $orange;
+    border-radius: 0;
+    background-color: $clear;
+    color: $orange;
+
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: $heading-font-family;
+	font-weight: $heading-font-weight;
+    line-height: 1.1;
+
+    transition: all $base-duration $base-timing;
+    z-index: 0;
+
+    &:hover {
+        border-top: 2px solid $clear;
+        background-color: $blue;
+        color: $white;
+    }
+}
+
+[type="reset"] {
+    font-family: $base-font-family;
+    background-color: $clear;
+    color: $blue;
+}
+
+
+// Radio Buttons
+[type="checkbox"],
+[type="radio"] {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    &:focus {
+        border-color: $action-color;
+        border-radius: 50%;
+        box-shadow: $_form-box-shadow, 0 1px 5px 3px rgba($action-color, 0.7);
+        outline: none;
+    }
+    ~ label {
+        color: $purple;
+    }
+    &:checked ~ label {
+        color: $orange;
+        opacity: 1;
+    }
+    &:checked ~ label .option-btn {
+        background-color: $orange;
+        box-shadow: 0 0 0 2px $orange;
+        opacity: 1;
+    }
+}
+
+.radio-option, .checkbox-option {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.radio-label, .checkbox-label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    @include animate(all);
+}
+
+.option-btn {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px $purple;
+    opacity: 0.6;
+    @include animate(all);
+}
+
+// All Gravity Forms
+
+body {
+    .main .gform_wrapper {
+        .top_label div.ginput_container,
+        .top_label span.ginput_total,
+        ul.gfield_checkbox,
+        ul.gfield_radio {
+            margin-top: 0;
+        }
+    }
+
+    .gform_wrapper {
+        // Loading spinner
+        .gform_ajax_spinner {
+            position: relative;
+            width: 45px;
+            top: 10px;
+        }
+        
+		// Survey stars
+		.gsurvey-rating:not(:checked) > label {
+			color: $white;
+			width: 28px;
+			font-size: 30px!important;
+			line-height: 28px;
+			background-size: 40px 40px;
+			margin-right: 10px;
+			margin-bottom: 0;
+			background-image: url('/app/themes/mightily/app/assets/img/star-rating.svg');
+			&:before {
+				content: '\00a0\00a0\00a0\00a0\00a0\00a0';
+			}
+		}
+
+		.gsurvey-rating:not(:checked) > label:hover,
+		.gsurvey-rating:not(:checked) > label:hover ~ label,
+		.gsurvey-rating > input:checked ~ label {
+		    // background-image: url(../images/star1.svg);
+			background-image: url('/app/themes/mightily/app/assets/img/star-rating-checked.svg');
+		    background-repeat: no-repeat;
+		    background-position: center center;
+		    background-size: 40px 40px;
+		}
+
+		.gsurvey-rating > input:checked + label:hover,
+		.gsurvey-rating > input:checked + label:hover ~ label,
+		.gsurvey-rating > input:checked ~ label:hover,
+		.gsurvey-rating > input:checked ~ label:hover ~ label,
+		.gsurvey-rating > label:hover ~ input:checked ~ label {
+			color: $orange;
+		}
+
+		// Page numbers, mobile
+		.gf_step {
+			display: inline-block;
+			width: auto;
+		}
+
+		// Add a Guest Pop-Up Box
+		.gpnf-dialog .ui-dialog-titlebar {
+			background: $orange;
+		}
+
+		.gpnf-row-actions .delete {
+			padding-left: 15px;
+			a {
+				color: $blue;
+			}
+		}
+
+        form {
+            max-width: 825px;
+            margin: 0 auto 60px;
+        }
+
+        .gfield_description,
+        .description_above .gfield_description {
+            padding-bottom: 30px;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        label.gfield_label {
+            font-size: 24px;
+        }
+
+        .gfield {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        // .gfield > * {
+        //     @media screen and ($form) {
+        //         width: 50%;
+        //         display: flex;
+        //         justify-content: flex-start;
+        //     }
+        // }
+
+        .ginput_container_address {
+            flex-direction: column;
+            align-items: center;
+
+            input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+                max-width: none;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        .gfield .clear-multi {
+            display: flex;
+        }
+
+		span.ginput_product_price,
+        .gfield_required {
+            color: $orange;
+        }
+
+		[type=button] {
+			color: $white;
+			@include animate(all);
+		}
+
+        .gfield .ginput_container_creditcard {
+            flex-direction: column;
+        }
+
+        // Temporarily hide this for dev purposes
+        .gfield .gfield_creditcard_warning_message {
+            display: none;
+        }
+
+        // Separate styles into three sections
+        // 1. Styles for all checkboxes and radio Buttons
+        // 2. Styles for all checkboxes and radio buttons, :not(.payment)
+        // 3. Styles for .payment
+
+        .gfield_checkbox,
+        .gfield_radio {
+            // display: flex;
+            // flex-wrap: wrap;
+            // align-items: flex-end;
+             li {
+                // margin: 0 15px !important;
+                // text-align: center;
+                display: flex;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        .gfield:not(.payment):not(.choose-amount):not(.frequency) {
+            .gfield_checkbox,
+            .gfield_radio {
+                li {
+                   label {
+                       display: block;
+                       width: 100%;
+                       max-width: 100%;
+                       margin: 0;
+                       padding-left: 30px;
+                       font-size: 24px;
+                       color: $purple;
+                       opacity: 0.6;
+                       @include animate(all);
+                   }
+                   label:before {
+                       content: ' ';
+                       position: absolute;
+                       top: 8px;
+                       left: 2px;
+                       width: 20px;
+                       height: 20px;
+                       border-radius: 50%;
+                       border: 2px solid #fff;
+                       box-shadow: 0 0 0 2px $purple;
+                       opacity: 0.6;
+                       @include animate(all);
+                   }
+                   input[type="checkbox"]:checked,
+                   input[type="radio"]:checked {
+                       ~ label {
+                           color: $orange;
+                           opacity: 1;
+                       }
+                       ~ label:before {
+                           background-color: $orange;
+                           box-shadow: 0 0 0 2px $orange;
+                           opacity: 1;
+                       }
+                   }
+
+                   input[type="checkbox"]:hover,
+                   input[type="radio"]:hover {
+                       ~ label {
+                           color: $orange;
+                           opacity: 1;
+                       }
+                       ~ label:before {
+                           // background-color: $orange;
+                           box-shadow: 0 0 0 2px $orange;
+                           opacity: 1;
+                       }
+                   }
+
+               }
+            }
+        }
+
+        // Radio Buttons
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: 0;
+            height: 0;
+            margin: 0;
+            opacity: 0;
+            &:focus {
+                border-color: $action-color;
+                border-radius: 50%;
+                box-shadow: $_form-box-shadow, 0 1px 5px 3px rgba($action-color, 0.7);
+                outline: none;
+            }
+        }
+
+        .radio-option, .checkbox-option {
+            display: inline-block;
+            padding: 0 15px;
+        }
+
+        .top_label input.small,
+        .top_label select.small,
+        .top_label input.medium,
+        .top_label select.medium {
+            margin: 0;
+        }
+
+        .top_label div.ginput_container_email{
+			width: 100%;
+		}
+
+		.top_label input.medium,
+		.top_label select.medium {
+            width: 100%;
+
+            @media screen and ($form) {
+                max-width: 600px;
+            }
+        }
+
+        .gfield_price .gfield_radio {
+            label {
+                font-size: 46px;
+                line-height: 1;
+                border-bottom: 2px solid $white;
+                color: $medium-gray;
+                @include animate(all);
+            }
+            [type="radio"]:checked ~ label,
+            [type="radio"]:hover ~ label {
+                border-bottom: 2px solid $orange;
+                color: $orange;
+            }
+        }
+
+        span.ginput_total {
+            @extend .h1;
+            color: $orange;
+        }
+        span.ginput_product_price {
+            @extend .h3;
+            margin-left: 0.25em;
+            color: $orange;
+        }        
+
+        .gform_footer input.button {
+            display: block;
+            margin: 0 auto;
+        }
+
+        ul.gform_fields li.gfield {
+            padding-right: 0;
+        }
+
+        .ginput_container_date {
+            .gfield_date_dropdown_month {
+                margin: 0 10px 0 0;
+            }
+            .gfield_date_dropdown_day {
+                margin: 0 10px;
+            }
+            .gfield_date_dropdown_year {
+                margin: 0 0 0 10px;
+            }
+        }
+
+        input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='image']):not([type='file']) {
+            padding: 5px 10px;
+            color: #757575;
+        }
+
+        .gform_footer {
+            padding-top: 60px;
+            input[type="submit"] {
+                font-size: 24px;
+            }
+        }
+
+		// Errors
+		div.validation_error {
+			margin-bottom: 60px;
+		    color: $alert;
+		    border-top: 2px solid $alert;
+		    border-bottom: 2px solid $alert;
+		}
+
+		li.gfield.gfield_error,
+		li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+		    background-color: transparent;
+		    margin-bottom: 0 !important;
+		    border-top: 0;
+		    border-bottom: 0;
+		    padding-bottom: 0;
+		    padding-top: 0;
+		}
+
+		.gfield_error .gfield_label,
+		.validation_message,
+		li.gfield_error div.ginput_complex.ginput_container label,
+		li.gfield_error ul.gfield_checkbox,
+		li.gfield_error ul.gfield_radio {
+			color: $alert;
+		}
+
+		li.gfield.gfield_error.gfield_contains_required div.validation_message {
+		    width: 100%;
+			font-size: 16px;
+		    color: $blue;
+		}
+
+		li.gfield_error input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='image']):not([type='file']),
+		li.gfield_error textarea {
+		    border: 1px solid $alert;
+        }
+        
+        .ginput_product_price_label {
+            display: none;
+        }
+
+    } // Close .gform_wrapper
+
+}
+
+// Donate Gravity Form
+
+body {
+
+    .donate_wrapper.gform_wrapper {
+
+		.gfield {
+            display: flex;
+			flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 60px;
+            @media screen and ($form) {
+                flex-direction: row;
+            }
+        }
+
+        .gfield {
+            > * {
+                text-align: center;
+                @media screen and ($form) {
+                    width: 50%;
+                    display: flex;
+                    justify-content: flex-start;
+                }
+            }
+            .ginput_container_email {
+                width: 100%;
+                @media screen and ($form) {
+                    width: 50%;
+                }
+            }
+        }
+
+		.gfield .ginput_container_address,
+		.gfield .ginput_complex {
+			display: block;
+			text-align: left;
+		}
+
+        .gfield.center {
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            > * {
+                width: inherit;
+                justify-content: center;
+                font-size: inherit;
+            }
+        }
+
+        .hide-label .gfield_label {
+            display: none;
+        }
+
+        // Payment Options
+        .payment {
+            flex-direction: column;
+            @media screen and ($form) {
+                flex-direction: row;
+            }
+            // Payment Options Hover States
+            ul.gfield_radio {
+				justify-content: center;
+				align-items: flex-start;
+				li {
+					display: block;
+					overflow: visible;
+					@include animate(all);
+					label {
+						padding: 35px !important;
+						@include animate(all);
+					}
+					&:hover label {
+						box-shadow: 0 1px 9px rgba(0, 0, 0, 0.15);
+					}
+					&:first-child:hover,
+					&:nth-child(2):hover,
+					&:last-child:hover {
+						label:after {
+							opacity: 1;
+						}
+					}
+					input[type="radio"] {
+						&:checked ~ label:after {
+							opacity: 1;
+						}
+						&:checked ~ label {
+							box-shadow: 0 1px 9px rgba(0, 0, 0, 0.15);
+						}
+					}
+				}
+			}
+
+            // PayPal Payment Icon
+            // ul.gfield_radio li:nth-child(2) label {
+			ul.gfield_radio input[value="Paypal"] ~ label {
+                font-size: 0;
+                text-align: center;
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 103px;
+                    height: 99px;
+                    margin-right: auto;
+                    margin-left: auto;
+                    background: url('../img/logo-paypal.svg');
+                    background-repeat: no-repeat;
+                    background-position: top;
+                    background-size: 100px 198px;
+                }
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 43px;
+                    left: 39px;
+                    width: 103px;
+                    height: 99px;
+                    margin-right: auto;
+                    margin-left: auto;
+                    background: url('../img/logo-paypal.svg');
+                    background-repeat: no-repeat;
+                    background-size: 100px 198px;
+                    background-position: bottom;
+                    opacity: 0;
+                    @include animate(opacity);
+                }
+            }
+
+            // Credit Card Icon
+            // ul.gfield_radio li:first-child label {
+			ul.gfield_radio input[value="Cards"] ~ label {
+                width: 100%;
+                font-family: $base-font-family;
+                text-transform: capitalize;
+                text-align: center;
+                color: $medium-gray;
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 102px;
+                    height: 70px;
+                    margin-right: auto;
+                    margin-left: auto;
+                    margin-bottom: 10px;
+                    background: url('../img/icon-creditcard.svg');
+                    background-repeat: no-repeat;
+                    background-size: 100px 139px;
+                }
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 43px;
+                    width: 102px;
+                    height: 70px;
+                    margin-right: auto;
+                    margin-left: auto;
+                    background: url('../img/icon-creditcard.svg');
+                    background-repeat: no-repeat;
+                    background-size: 100px 139px;
+                    background-position: 2px -70px;
+                    opacity: 0;
+                    @include animate(opacity);
+                }
+            }
+
+            // Bill Me Icon
+            // ul.gfield_radio li:last-child label {
+			ul.gfield_radio input[value="Bill Me"] ~ label {
+                width: 100%;
+                font-family: $base-font-family;
+                text-transform: capitalize;
+                text-align: center;
+                color: $medium-gray;
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 102px;
+                    height: 70px;
+                    margin-right: auto;
+                    margin-left: auto;
+                    margin-bottom: 10px;
+                    background: url('../img/icon-envelope.svg');
+                    background-repeat: no-repeat;
+                    background-size: 100px 139px;
+                }
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 43px;
+                    width: 102px;
+                    height: 70px;
+                    margin-right: auto;
+                    margin-left: auto;
+                    background: url('../img/icon-envelope.svg');
+                    background-repeat: no-repeat;
+                    background-size: 100px 139px;
+                    background-position: 2px -70px;
+                    opacity: 0;
+                    @include animate(opacity);
+                }
+            }
+        }
+
+        // Payment & Amount Radio Buttons
+        .payment ul.gfield_radio li,
+        .amount ul.gfield_radio li {
+            margin: 10px 15px !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @media screen and ($form) {
+                margin: 10px 25px !important;
+            }
+        }
+
+        // Amount Radio Buttons
+        .amount ul.gfield_radio {
+            justify-content: center;
+            padding-bottom: 30px;
+        }
+
+        // Payment Frequency buttons
+        .frequency ul.gfield_radio {
+            justify-content: center;
+            @media screen and ($form) {
+                justify-content: flex-start;
+            }
+            li {
+                margin: 0 15px !important;
+                display: flex;
+                flex-direction: column;
+                @media screen and ($form) {
+                    &:first-child {
+                        margin-left: 0 !important;
+                    }
+                }
+                label {
+                    width: auto;
+                }
+            }
+        }
+
+        .gfield_checkbox,
+        .gfield_radio {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            li {
+                // display: block;
+                margin: 0 15px !important;
+                text-align: center;
+            }
+             li label {
+                 max-width: 100%;
+                 width: 100%;
+                 opacity: 1;
+            }
+        }
+
+        .gfield_label {
+            text-align: left;
+        }
+
+        .buttons {
+            [type="radio"] ~ label {
+                max-width: 100%;
+                padding: 5px 40px;
+                text-align: center;
+                font-size: 18px;
+                border-radius: 5px;
+                border: 2px solid $blue;
+                color: $blue;
+                @include animate(all);
+            }
+            [type="radio"]:checked ~ label,
+            [type="radio"]:hover ~ label {
+                border: 2px solid $blue;
+                background-color: $blue;
+                color: $white;
+            }
+        }
+
+        // Credit Card Fields
+        .gfield_label_before_complex {
+            align-self: center;
+            @media screen and ($form) {
+                align-self: flex-start;
+            }
+        }
+
+        .gfield_creditcard_warning_message {
+            display: none;
+        }
+
+        .ginput_container_creditcard {
+            label {
+                text-align: left;
+            }
+            .ginput_complex select {
+                width: 99.5%;
+            }
+        }
+
+        .ginput_complex .ginput_cardinfo_right span.ginput_card_security_code_icon {
+            display: block;
+            left: 0;
+            margin: 4px 0 6px;
+        }
+
+        .ginput_card_security_code {
+            margin: 0;
+        }
+
+    }
+
+}

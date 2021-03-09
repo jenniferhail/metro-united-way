@@ -1,0 +1,180 @@
+@mixin heading-style {
+    font-family: $heading-font-family;
+    font-weight: $heading-font-weight;
+    letter-spacing: $base-letter-spacing;
+    text-transform: uppercase;
+}
+
+html {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: 100%;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: $heading-font-family;
+  font-size: modular-scale(1);
+  font-weight: $heading-font-weight;
+  line-height: $heading-line-height;
+  margin: 0 0 $small-spacing;
+  text-transform: uppercase;
+  color: $orange;
+}
+
+h1, .h1 {
+    font-size: 60px;
+    letter-spacing: 0.75px;
+    line-height: 0.95;
+    margin-bottom: 30px;
+
+    @media screen and ($tablet) {
+        font-size: 70px;
+    }
+
+    @media screen and ($laptop) {
+        font-size: 80px;
+    }
+
+    @media screen and ($desktop) {
+        // font-size: 120px;
+        font-size: 90px;
+    }
+
+}
+
+.col-text .h1 {
+    // hyphens: auto;
+    font-size: 45px;
+
+    @media screen and ($tablet) {
+        font-size: 65px;
+    }
+
+    @media screen and ($laptop) {
+        font-size: 80px;
+    }
+
+    @media screen and ($desktop) {
+        // font-size: 105px;
+        font-size: 90px;
+    }
+
+}
+
+h2, .h2 {
+    font-size: 35px;
+    line-height: 1.05;
+
+    // .col-text & {
+    //     hyphens: auto;
+    // }
+
+    @media screen and ($tablet) {
+        font-size: 45px;
+    }
+
+    @media screen and ($laptop) {
+        font-size: 55px;
+    }
+
+}
+
+h3, .h3 {
+    // font-size: 24px;
+    line-height: 1.05;
+
+    // @media screen and ($tablet) {
+		font-size: 30px;
+	// }
+
+    @media screen and ($desktop) {
+        font-size: 40px;
+    }
+
+}
+
+h4, .h4 {
+    font-size: 20px;
+    line-height: 1.1;
+
+    @media screen and ($tablet) {
+        font-size: 24px;
+    }
+
+    @media screen and ($desktop) {
+        font-size: 28px;
+    }
+}
+
+h5, .h5 {
+    font-size: 18px;
+    line-height: 1.1;
+
+    @media screen and ($tablet) {
+        font-size: 22px;
+    }
+
+    @media screen and ($desktop) {
+        font-size: 26px;
+    }
+}
+
+h6, .h6 {
+    font-size: 14px;
+    line-height: 1.1;
+
+    @media screen and ($tablet) {
+        font-size: 20px;
+    }
+
+    @media screen and ($desktop) {
+        font-size: 24px;
+    }
+}
+
+p {
+  margin: 0 0 $small-spacing;
+}
+
+.p {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.sep {
+    padding: 0 10px;
+}
+
+a {
+    color: $action-color;
+    text-decoration-skip: ink;
+    text-decoration: none;
+    transition: color $base-duration $base-timing;
+
+    &:hover {
+        // color: shade($action-color, 25%);
+        color: $medium-gray;
+    }
+
+    &:focus {
+        outline: $focus-outline;
+        outline-offset: $focus-outline-offset;
+    }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $base-spacing 0;
+}

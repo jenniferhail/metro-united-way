@@ -1,0 +1,114 @@
+$_button-background-color: $action-color;
+$_button-background-color-hover: $btn-hover;
+
+#{$all-buttons} {
+  appearance: none;
+  background-color: $_button-background-color;
+  border: 0;
+  border-radius: $base-border-radius;
+  color: contrast-switch($_button-background-color);
+  cursor: pointer;
+  display: inline-block;
+  // line-height: 1;
+  padding: 0.5em 1.75em;
+  font-family: $heading-font-family;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: $heading-font-weight;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color $base-duration $base-timing;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $_button-background-color-hover;
+    color: $white;
+  }
+
+  &:focus {
+    outline: $focus-outline;
+    outline-offset: $focus-outline-offset;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      background-color: $_button-background-color;
+    }
+  }
+}
+
+.buttons {
+    display: flex;
+
+    .btn {
+        display: block;
+        position: relative;
+        max-width: 100%;
+        padding: 15px 45px;
+
+        background-color: $clear;
+        color: $orange;
+
+        transition: all $base-duration $base-timing;
+        z-index: 0;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            z-index: -1;
+            background-color: $orange;
+            transition: height $base-duration $base-timing, background-color 150ms $base-timing 150ms;
+        }
+
+        &:hover {
+            color: $white;
+
+            &:before {
+                height: 100%;
+                background-color: $blue;
+                transition: height $base-duration $base-timing, background-color 150ms $base-timing;
+            }
+        }
+
+        &+.btn {
+            margin-left: 20px;
+        }
+
+    }
+}
+
+.btn {
+    text-align: center;
+    text-decoration: none;
+    font-family: $heading-font-family;
+	font-weight: $heading-font-weight;
+    text-transform: uppercase;
+    line-height: 1.1;
+    font-size: 24px;
+
+    transition: all $base-duration $base-timing;
+}
+
+.btn-white {
+    color: $white;
+    &:before {
+        background-color: $white;
+    }
+    &:hover {
+        color: $white;
+    }
+    &:hover:before {
+        background-color: $btn-hover;
+    }
+}

@@ -1,0 +1,296 @@
+.layout.hero {
+    position: relative;
+	&.hide {
+		display: none;
+	}
+	&.fp-section {
+		height: 100%;
+		transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0,0,0);
+	}
+    .layout.cta.cta-image + &,
+    .layout.cta.cta-slider + & {
+        margin-top: -$layout-spacing-small;
+        @media screen and ($tablet) {
+            margin-top: -$layout-spacing-large;
+        }
+    }
+    + .layout.hero {
+        margin-top: -$layout-spacing-small;
+        @media screen and ($tablet) {
+            margin-top: -$layout-spacing-large;
+        }
+    }
+    + .layout:not(.hero) {
+        margin-top: 0;
+    }
+    &.section {
+        margin: 0;
+        + .layout.hero.section {
+            margin-top: 0;
+        }
+    }
+    &:not(.section) {
+        .content {
+            min-height: 768px;
+        }
+    }
+	&:not(.fp-section) {
+		.content {
+			justify-content: center;
+		}
+		.hero-top,
+		.hero-bottom {
+			height: auto;
+		}
+		.hero-bottom {
+			padding-top: 40px;
+		}
+	}
+    .slide {
+        position: relative;
+    }
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 0;
+    }
+    .content {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        height: 100%;
+		min-height: calc(100vh - 74px);
+        z-index: 1;
+        text-align: center;
+        color: #ffffff;
+		@media screen and ($tablet) {
+			height: 100vh;
+			min-height: 0;
+		}
+    }
+
+    &.hero-logo {
+        .content {
+            justify-content: space-evenly;
+        }
+        .btn {
+            margin-bottom: 0;
+        }
+    }
+
+    .hero-top, .hero-bottom, .hero-first {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-top {
+        justify-content: flex-end;
+        height: 55%;
+        img {
+            margin: 0 auto 60px;
+			align-self: center;
+        }
+        .h1 {
+            margin-bottom: 0;
+        }
+    }
+
+    .hero-bottom {
+        justify-content: center;
+        height: 45%;
+        padding: 0 30px;
+		strong {
+			display: block;
+		}
+    }
+
+    .hero-first {
+        justify-content: center;
+        width: 100%;
+        min-height: 53%;
+        h1 {
+			margin-bottom: 15px;
+			@media screen and (min-height: 440px) {
+	            margin-bottom: 45px;
+	        }
+        }
+    }
+	.hero-links {
+		display: none;
+		@media screen and ($mobile-sm) {
+			display: flex;
+			flex-direction: row;
+			margin-bottom: 30px;
+			li {
+				width: 50%;
+				padding: 0 15px;
+				&:first-child {
+					text-align: right;
+				}
+				&:last-child {
+					text-align: left;
+				}
+			}
+			a:hover {
+				color: $orange;
+			}
+		}
+		@media screen and ($mobile-lg) {
+			li {
+				padding: 0 30px;
+			}
+		}
+		@media screen and (max-height: 440px) {
+			margin-bottom: 0;
+			li a {
+				font-size: 20px;
+			}
+		}
+	}
+    .start-slider i {
+        font-size: 50px;
+    }
+    .fade-in {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+		-webkit-transform: translate3d(0, -100%, 0);
+        transition: all 300ms ease;
+		-webkit-transition: all 300ms ease;
+    }
+    &.active {
+        .fade-in {
+			opacity: 1;
+			transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+            transition: all 500ms ease 200ms;
+			-webkit-transition: all 500ms ease 200ms;
+        }
+    }
+    h1, .h1 {
+        color: #ffffff;
+        @media screen and (min-height: 440px) {
+            font-size: 100px;
+        }
+        @media screen and ($tablet) {
+            font-size: 150px;
+        }
+        @media screen and ($desktop) {
+            font-size: 200px;
+        }
+        @media screen and ($widescreen) {
+            font-size: 240px;
+        }
+		@media screen and (max-height: 440px) {
+			margin-bottom: 0;
+			font-size: 60px;
+		}
+    }
+
+    a {
+        color: #ffffff;
+        font-size: 24px;
+        font-family: $heading-font-family;
+		font-weight: $heading-font-weight;
+        text-transform: uppercase;
+    }
+
+    .btn {
+        position: relative;
+        padding: 15px 45px;
+        margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(59, 59, 59, 0.75);
+            transition: height $base-duration $base-timing, background-color 150ms $base-timing;
+            z-index: -1;
+        }
+
+        @media screen and ($tablet) {
+            &:before {
+                height: 2px;
+                background-color: #ffffff;
+                transition: height $base-duration $base-timing, background-color 150ms $base-timing 150ms;
+            }
+            &:hover {
+                &:before {
+                    height: 100%;
+                    background-color: rgba(59, 59, 59, 0.75);
+                    transition: height $base-duration $base-timing, background-color 150ms $base-timing;
+                }
+            }
+        }
+		@media screen and (max-height: 440px) {
+			margin-bottom: 15px;
+			font-size: 16px;
+		}
+    }
+}
+
+.layout.hero.newsletter {
+	margin-bottom: 80px;
+    .content {
+        justify-content: center;
+        @media screen and ($mobile-lg) {
+            padding-right: 6%;
+            padding-left: 6%;
+            padding-bottom: 100px;
+            justify-content: flex-end;
+            align-items: flex-start;
+            text-align: left;
+        }
+        @media screen and ($tablet) {
+            max-width: 725px;
+            width: 80%;
+        }
+        @media screen and ($desktop) {
+            width: 50%;
+        }
+    }
+    .text {
+        display: none;
+        font-weight: 700;
+        margin-bottom: 80px;
+        @media screen and ($mobile-lg) {
+            display: block;
+        }
+    }
+    .newsletter-form {
+        position: relative;
+        width: 100%;
+        max-width: 700px;
+    }
+    .btn {
+        @media screen and ($mobile-lg) {
+            position: absolute;
+        }
+    }
+    h1, .h1 {
+        font-size: 60px;
+        @media screen and ($tablet) {
+            font-size: 80px;
+        }
+        @media screen and ($laptop) {
+            font-size: 100px;
+        }
+        @media screen and ($desktop) {
+            font-size: 120px;
+        }
+    }
+}

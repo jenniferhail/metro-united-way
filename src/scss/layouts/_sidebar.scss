@@ -1,0 +1,135 @@
+.layout.sidebar {
+	.wrapper {
+		max-width: $max-content;
+	}
+	.grid {
+		@media screen and ($tablet) {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+	.col {
+		&.sidebar-nav {
+		    margin-bottom: 60px;
+			text-align: center;
+			@media screen and ($tablet) {
+				width: 35%;
+				max-width: 320px;
+				margin-bottom: 0;
+				padding-right: $base-spacing;
+				text-align: left;
+			}
+		}
+		&.sidebar-content {
+			position: relative;
+			@media screen and ($tablet) {
+				width: 65%;
+			}
+			.title {
+				@media screen and ($tablet) {
+					display: none;
+				}
+			}
+			ul, ol {
+				padding-left: 20px;
+				margin-left: 20px;
+				margin-bottom: 20px;
+			}
+		
+			ul {
+				list-style: disc;
+			}
+		
+			ol {
+				list-style: decimal;
+			}
+		}
+	}
+	.sidebar-nav-item {
+	    padding: 10px 15px;
+		@media screen and ($tablet) {
+			padding: 0;
+		}
+		.title {
+			display: inline-block;
+			margin-bottom: 0;
+			color: $medium-gray;
+			transition: color 300ms ease-in-out;
+			@media screen and ($tablet) {
+				margin-bottom: 0.75em;
+			}
+			&:hover {
+				color: $orange;
+			}
+		}
+		&.active {
+			.title {
+				color: $orange;
+			}
+		}
+	}
+	.sidebar-content-item {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transform: scaleY(0);
+		transform-origin: top;
+		transition: opacity 300ms ease-in-out, transform 300ms ease-in-out 500ms;
+		&.active {
+			position: relative;
+			opacity: 1;
+			transform: scaleY(1);
+			transition: transform 300ms ease-in-out, opacity 300ms ease-in-out 500ms;
+			z-index: 9;
+		}
+	}
+	.open-dropdown {
+        span {
+            cursor: pointer;
+            font-weight: 600;
+            color: $blue;
+            @include animate(color);
+            &:hover {
+                color: $orange;
+            }
+        }
+        @media screen and ($tablet) {
+            display: none;
+        }
+    }
+    .dropdown {
+        min-width: 250px;
+        &.hide {
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
+        }
+        // Style the filters dropdown for < tablet only
+        @media screen and (max-width: 768px) {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 25px 15px;
+            margin: 20px auto 0;
+            background: $white;
+            box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+        @media screen and ($tablet) {
+            display: block;
+        }
+    }
+	.dropdown-content {
+		display: block;
+		@media screen and (max-width: 768px) {
+			display: none;
+		}
+		&.hide {
+			display: block;
+			@media screen and (max-width: 768px) {
+				display: none;
+			}
+		}
+	}
+}

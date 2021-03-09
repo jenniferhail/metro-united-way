@@ -1,0 +1,28 @@
+.layout.side-by-side {
+    // .content {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     h1 {
+    //         text-align: center;
+    //     }
+    // }
+    .intro {
+        max-width: 975px;
+    }
+    .col {
+        width: 100%;
+        @media screen and ($tablet) {
+            width: 50%;
+        }
+    }
+    .col-text {
+        font-weight: 600;
+    }
+    .h1, h1, .h2, h2 {
+        margin-bottom: 60px;
+        color: $orange;
+    }
+    .location {
+        color: $blue;
+    }
+}

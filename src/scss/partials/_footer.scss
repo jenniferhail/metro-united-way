@@ -1,0 +1,227 @@
+.layout.footer {
+    margin-bottom: 0;
+    padding-bottom: 30px;
+    color: $dark-gray;
+
+    @media screen and ($desktop) {
+        padding-bottom: 50px;
+    }
+
+	&.hide {
+		display: none;
+	}
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 5%;
+        margin-bottom: 30px;
+
+        @media screen and ($desktop) {
+            padding: 0;
+        }
+
+    }
+
+    .col {
+
+        &:first-child {
+            order: 3;
+
+            @media screen and ($tablet) {
+                display: block;
+                width: auto;
+                order: inherit;
+            }
+
+        }
+
+        &.col-nav {
+            width: 50%;
+            padding-left: 15px;
+
+            @media screen and ($tablet) {
+                width: auto;
+                padding-left: 0;
+            }
+
+        }
+
+        &:last-child {
+            width: 100%;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 60px;
+            order: 4;
+
+            @media screen and ($desktop) {
+                align-items: flex-end;
+                width: 40%;
+                padding-top: 0;
+                text-align: right;
+                order: inherit;
+            }
+
+        }
+
+    }
+
+    .muw-logo {
+        margin: 0 auto $base-spacing;
+        @media screen and ($desktop) {
+            margin: 0 0 $base-spacing auto;
+        }
+    }
+
+    .copyright {
+        max-width: 330px;
+        margin: 0 auto;
+        font-size: 10px;
+
+        @media screen and ($desktop) {
+            max-width: 515px;
+            margin: 0 0 0 auto;
+            font-size: 14px;
+        }
+
+    }
+
+    .site-credit {
+        text-align: center;
+
+        .mightily {
+            width: 100px;
+        }
+    }
+
+}
+
+.footer-nav {
+
+    a {
+        color: $dark-gray;
+
+        &:hover {
+            color: $blue;
+        }
+
+    }
+
+    .main-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 60px;
+
+        @media screen and ($mobile-lg) {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        @media screen and ($tablet) {
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 0;
+        }
+
+        @include heading-style;
+        font-size: 24px;
+
+        a {
+            color: $purple;
+            @include animate(color);
+
+            &:hover {
+                color: $blue;
+            }
+
+        }
+
+    }
+
+}
+
+.social-links {
+
+    li {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 0.25em $base-spacing;
+
+        @media screen and ($desktop) {
+            padding: 0 0 $base-spacing $base-spacing;
+        }
+
+    }
+
+    a {
+        display: block;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: $white;
+
+        @include animate(color, opacity);
+
+        &:hover {
+            color: $white;
+            opacity: $opacity-hover;
+        }
+
+        &.facebook {
+            background-color: #0c95cc;
+        }
+
+        &.twitter {
+            background-color: #5cc7e7;
+        }
+
+        &.instagram {
+            background-color: #ef699e;
+        }
+
+        &.youtube {
+            background-color: #f16564;
+        }
+
+        &.linkedin {
+            background-color: #69c7c7;
+
+            i {
+                top: 45%;
+                left: 52%;
+            }
+
+        }
+
+    }
+    i {
+        @include center;
+        font-size: 27px;
+    }
+}
+
+.legal-links {
+
+	.legal-link {
+		display: inline-block;
+
+		&:after {
+		    content: '|';
+		    padding-right: 2px;
+		    padding-left: 5px;
+		}
+
+		&:last-child:after {
+			content: none;
+		}
+	}
+
+}
+
+.layout.basic-content .social-links a:hover {
+    color: $white;
+}

@@ -1,0 +1,271 @@
+#notification {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 500ms, background-color 500ms 500ms;
+	z-index: 9999999;
+	pointer-events: auto;
+	overflow: auto;
+	transform: scale(1) perspective(0) rotateX(0);
+	padding: 15px;
+	background-color: rgba(0,0,0,0.5);
+	@media screen and ($tablet) {
+		padding: 30px;
+	}
+	@media screen and ($laptop) {
+		padding: 60px;
+	}
+	&.hidden {
+		transform: scale(0) perspective(750px) rotateX(30deg);
+		pointer-events: none;
+		background-color: rgba(0,0,0,0);
+		transition: all 500ms 350ms, background-color 500ms 0ms;
+	}
+	.notification {
+		max-width: 1200px;
+		margin: auto;
+		box-shadow: 0 0 10px rgba(0,0,0,0.15);
+		&.has-content {
+			max-width: 740px;
+		}
+		&.background-img {
+			.content {
+				position: relative;
+				height: 100%;
+				background-position: center center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			.wrapper {
+				max-width: 740px;
+				padding: 150px 0 100px;
+				margin: 0 auto;
+				@media screen and ($mobile-sm) {
+					padding: 180px 55px 130px;
+				}
+			}
+		}
+		.notification-img {
+			display: block;
+			max-height: calc(100vh - 30px);
+			@media screen and ($tablet) {
+				max-height: calc(100vh - 60px);
+			}
+			@media screen and ($laptop) {
+				max-height: calc(100vh - 120px);
+			}
+		}
+		.wrapper {
+			width: 80%;
+			padding: 0 0 15px;
+			margin-top: -30px;
+			text-align: center;
+			@media screen and ($mobile-sm) {
+				padding: 0 15px 15px;
+			}
+		}
+		.content {
+			position: relative;
+			background-color: $white;
+		}
+		.h3 {
+			color: $blue;
+			font-size: 30px;
+			line-height: 1.05;
+		}
+		.text {
+			font-size: 14px;
+		}
+		.buttons {
+			padding-top: 30px;
+			justify-content: center;
+		}
+		&.reversed-text {
+			button.remodal-close {
+				color: $white;
+				&:hover {
+					color: rgba(255,255,255,0.5);
+				}
+			}
+			.h3,
+			.text {
+				color: $white;
+			}
+		}
+	}
+	.notification-close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 16px 17px 15px 17px;
+		font-size: 16px;
+		line-height: 16px;
+		background-color: $clear;
+		color: $dark-gray;
+		z-index: 2;
+		transition: color $base-duration $base-timing;
+		&:hover {
+			color: rgba(122,122,122,0.5);
+		}
+	}
+	.notification-link {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+	}
+}
+
+.notification-overlay {
+	content: '';
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 1;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 12;
+	transition: opacity 0.75s ease 0.75s;
+	&.hidden {
+		opacity: 0;
+		background-color: rgba(0,0,0,0);
+		transition: opacity 0.75s ease 0.75s;
+	}
+}
+
+.option.notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+	padding: 15px 0;
+    background-color: $blue;
+	// background-color: $orange;
+	// color: $blue;
+	color: $white;
+	transform: translate3d(0, 0, 0);
+    transition: all $base-duration $base-timing;
+    z-index: 9999;
+    .close {
+	    position: absolute;
+	    top: 0;
+	    right: 5px;
+	    width: auto;
+		// padding: 8px 10px 5px;
+		padding: 15px 10px 11px;
+		border: 0;
+	    color: $white;
+		// color: $blue;
+		background: $clear;
+		transition: all 150ms ease-in-out;
+		z-index: 9;
+		&:hover {
+			opacity: 0.8;
+			background-color: transparent;
+		}
+		@media screen and ($tablet) {
+			padding: 17px 10px 12px;
+		}
+		@media screen and ($laptop) {
+			right: 20px;
+		}
+	}
+	.drawer {
+		padding: 0 40px;
+		@media screen and ($laptop) {
+			padding: 0 55px;
+		}
+		.content {
+			cursor: pointer;
+			transition: all 150ms ease-in-out;
+			span:after {
+				content: '';
+				display: inline;
+				position: relative;
+			    top: 15px;
+				width: 0;
+				height: 0;
+				margin-left: 10px;
+				border-style: solid;
+				border-width: 7.8px 4.5px 0 4.5px;
+				border-color: $white transparent transparent transparent;
+				// border-color: $blue transparent transparent transparent;
+				transition: opacity 150ms ease-in-out;
+			}
+			&:hover {
+				color: hsla(0,0,100%,0.7);
+				span:after {
+					opacity: 0.8;
+				}
+			}
+		}
+		&.open {
+			.content:hover {
+				span:after {
+					opacity: 0.8;
+				}
+			}
+			span:after {
+				top: auto;
+				bottom: 14px;
+				border-width: 0 4.5px 7.8px 4.5px;
+				border-color: transparent transparent $white transparent;
+				// border-color: transparent transparent $blue transparent;
+			}
+		}
+	}
+	// Hidden container
+	.container {
+		display: none;
+		padding: 20px 0;
+		.notification-img {
+			display: block;
+			margin: auto;
+		    max-height: 89vh;
+		}
+	}
+	+ .header {
+		position: fixed;
+		top: 44px;
+	}
+	&.hide {
+		display: none;
+		visibility: hidden;
+		opacity: 0;
+		+ .header {
+			top: 0;
+		}
+	}
+	.content {
+		font-size: 14px;
+		font-weight: 600;
+		text-align: center;
+		@media screen and ($tablet) {
+			font-size: 16px;
+		}
+		a {
+			color: $white;
+			transition: all 150ms ease-in-out;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+	.notification-link {
+		display: block;
+		opacity: 1;
+		transition: opacity $base-duration $base-timing;
+		&:hover {
+			opacity: 0.95;
+		}
+	}
+}

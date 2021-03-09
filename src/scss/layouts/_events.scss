@@ -1,0 +1,34 @@
+.layout.event {
+    .col-text {
+        font-weight: 600;
+    }
+    .location {
+        color: $blue;
+    }
+}
+
+body.single-muw_events .layout {
+	margin-bottom: 100px;
+	&.article.basic-content {
+		font-weight: 600;
+		.location {
+	        color: $blue;
+	    }
+	}
+}
+
+.share-event {
+	&.hide {
+		display: none;
+	}
+	&.center {
+		text-align: center;
+	}
+	span.h4 {
+		display: block;
+		margin-bottom: 15px;
+	}
+	.social-links li {
+	    padding: 0 .25em 0;
+	}
+}

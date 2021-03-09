@@ -1,0 +1,268 @@
+.layout.stories {
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col-text {
+        text-align: center;
+
+        @media screen and ($tablet) {
+            text-align: left;
+        }
+
+    }
+
+    .stories-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            width: 50%;
+        }
+
+        a {
+            opacity: 0.3;
+
+            &:hover {
+                opacity: 1;
+            }
+
+        }
+
+    }
+
+    .card {
+        position: relative;
+        display: block;
+        height: 425px;
+        background-size: cover;
+        background-position: center center;
+        background-color: transparent;
+        overflow: hidden;
+        @include animate(height);
+
+        .story-content {
+            position: absolute;
+            right: 30px;
+            bottom: -160px;
+            opacity: 0;
+            text-align: right;
+            color: $white;
+            @include animate(all);
+        }
+
+        h2 {
+            margin-bottom: 0;
+            color: $white;
+
+            &:after {
+                content: ">";
+                position: relative;
+                left: 10px;
+                bottom: 5px;
+            }
+
+        }
+
+        .text {
+            font-weight: 600;
+        }
+
+        &:hover {
+            height: 525px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 0.45;
+                mix-blend-mode: multiply;
+                background-color: $blue;
+            }
+
+            .story-content {
+                opacity: 1;
+                bottom: -30px;
+            }
+
+        }
+
+    }
+
+    .h1, h1, .h2, h2, .h3, h3, .h4, h4 {
+        color: $orange;
+    }
+
+    .text {
+        margin-bottom: 60px;
+    }
+
+    .mobile-btn {
+        width: 100%;
+        padding-top: 100px;
+        text-align: center;
+
+        @media screen and ($tablet) {
+            display: none;
+        }
+
+    }
+
+    .desktop-btn {
+        display: none;
+
+        @media screen and ($tablet) {
+            display: block;
+        }
+
+    }
+
+}
+
+.layout.blog {
+
+    .intro {
+        max-width: 1000px;
+    }
+
+    .filters {
+        position: relative;
+        margin-bottom: 60px;
+
+        .filter, .cat-item {
+            display: block;
+            padding: 5px 15px;
+
+            @media screen and ($tablet) {
+                display: inline-block;
+                padding: 0 15px;
+            }
+
+            &.active-filter .filter-link, &.current-cat > a {
+                color: $action-color;
+            }
+
+        }
+
+        .filter-link, .cat-item > a {
+            font-weight: 600;
+            color: $medium-gray;
+            @include animate(color);
+
+            &:hover {
+                color: $action-color;
+            }
+
+        }
+
+    }
+
+    .open-dropdown {
+
+        span {
+            cursor: pointer;
+            font-weight: 600;
+            color: $blue;
+            @include animate(color);
+
+            &:hover {
+                color: $orange;
+            }
+
+        }
+
+        @media screen and ($tablet) {
+            display: none;
+        }
+
+    }
+
+    .dropdown {
+        min-width: 250px;
+
+        &.hide {
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        // Style the filters dropdown for < tablet only
+        @media screen and (max-width: 768px) {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 25px 15px;
+            margin: 20px auto 0;
+            background: $white;
+            box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+
+        @media screen and ($tablet) {
+            display: block;
+        }
+    }
+
+}
+
+.layout.article {
+
+    .article-content {
+        margin-bottom: 100px;
+    }
+
+    .article-footer {
+
+        .pagination {
+            justify-content: space-between;
+            padding-bottom: 60px;
+        }
+
+        .btn {
+            font-size: 18px;
+
+            @media screen and ($tablet) {
+                font-size: 24px;
+            }
+        }
+
+    }
+
+    .btn {
+        position: relative;
+        padding: 15px 45px;
+        margin-bottom: 30px;
+        color: $orange;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            display: block;
+            background-color: $orange;
+            z-index: -1;
+            transition: height $base-duration $base-timing, background-color 150ms $base-timing 150ms;
+        }
+
+        &:hover {
+            color: #ffffff;
+
+            &:before {
+                height: 100%;
+                background-color: $blue;
+                transition: height $base-duration $base-timing, background-color 150ms $base-timing;
+            }
+
+        }
+
+    }
+
+}
